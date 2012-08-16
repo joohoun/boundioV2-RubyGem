@@ -14,18 +14,18 @@ API
 利用方法
 --------
 
-boundioV2 gem インストール
-$gem install boundioV2
- 
-// 認証情報設定
-$export BOUNDIOV2_USER_SERIAL_ID=userSerialId # ユーザーシリアルID
-$export BOUNDIOV2_API_KEY=appId # アプリケーションキー
-$export BOUNDIOV2_USER_KEY=authKey # ユーザー認証キー
+boundioV2 gem インストール<br />
+$gem install boundioV2<br />
 
-// call
-$ boundioV2 call --tel-to=09012345678 --cast='file(000001)'
-1234 => 通話IDが返却値として表示される
+// 認証情報設定<br />
+$export BOUNDIOV2_USER_SERIAL_ID=userSerialId # ユーザーシリアルID<br />
+$export BOUNDIOV2_API_KEY=appId # アプリケーションキー<br />
+$export BOUNDIOV2_USER_KEY=authKey # ユーザー認証キー<br />
 
-// プッシュ音認識機能の利用方法
-$ boundioV2 call --tel-to=09012345678 --cast='file(000001)%%gather(30,4)%%file(000002)'
-1234 => 通話IDが返却値として表示される
+// call<br />
+$ boundioV2 call --tel-to=09012345678 --cast='file(000001)'<br />
+1234 => 通話IDが返却値として表示される<br />
+
+// プッシュ音認識機能の利用方法<br />
+$ boundioV2 call --tel-to=09012345678 --cast='file(000001)%%gather(30,4)%%file(000002)'<br />
+1234 => 通話IDが返却値として表示される<br />
