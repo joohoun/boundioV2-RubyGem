@@ -1,0 +1,33 @@
+module BoundioV2
+  class Application < Thor
+    desc "call", "Call the specified number with the specified cast"
+    method_options :tel_to => :string, :cast => :string
+    def call
+      call = Call.create(options)
+      puts call.id
+    end
+
+    desc "status", "Look up the status of the specified call"
+    method_options :tel_id => :string, :start => :string, :end => :string
+    def status
+      if options[:tel_id]
+        puts TelStatus.find(options[:tel_id])
+      else
+        puts TelStatus.find_all(options)
+      end
+    end
+
+    desc "file", "Create a file for use with boundioV2"
+    method_options :convtext => :string, :file => :string
+    def file
+      file = AudioFile.create(options[:file] ? {:file => File.new(options[:file], "rb")} : options)
+      puts file.id
+    end
+
+    private
+
+    def client 
+      @client ||= BoundioV2::Client.new(ENV["BOUNDIO_USER_SERIAL_ID"], ENV["BOUNDIO_API_KEY"])
+    end
+  end
+end
